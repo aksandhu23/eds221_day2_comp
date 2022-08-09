@@ -7,6 +7,54 @@ execute:
   message: false
 ---
 
-## 
+## Add execute at the top then warning and message
 
-## 
+## Vectors
+
+```{r}
+# Create a vector
+dogs <- c("teddy", "khora", "waffle", "banjo", "tallie")
+
+#Check the class
+class(dogs)
+```
+
+```{r}
+cats <- c("creamsicle wolf", 14.2, 3L)
+
+class(cats)
+```
+
+```{r}
+years <- c(20, 40, 16, 2)
+
+class(years)
+
+typeof(years)
+```
+
+Ask Question that return true or false
+
+```{r}
+# Want to do a conditional check
+# is. <<< asks questions "is this THIS"
+# as. <<< gives a command "make this THIS"
+
+is.numeric(years)
+is.character(years)
+
+```
+
+```{r}
+dog_food <- c(teddy = "purina", khora = "alpo", waffle = "fancy feast")
+
+dog_food
+
+# Look for position
+
+dog_food[2]
+
+# Look for the index 
+
+dog_food["khora"]
+```
