@@ -7,6 +7,10 @@ execute:
   message: false
 ---
 
+```{r}
+library(tidyverse)
+```
+
 ## Add execute at the top then warning and message
 
 ## Vectors
@@ -57,4 +61,144 @@ dog_food[2]
 # Look for the index 
 
 dog_food["khora"]
+```
+
+```{r}
+cars <- c("blue", "orange", "white")
+cars[1]
+cars[3]
+
+i <- 3
+cars[i]
+
+k <- seq(1:2)
+k
+```
+
+```{r}
+
+# Overwrite values and change them
+
+cars[3] <- "yellow"
+cars
+```
+
+# Matrices
+
+byrow: how to populate the matrix, do you want to populate by column or by the row so going side to side or up and down.
+
+Index is \[ \]
+
+```{r}
+fish_size <- matrix(c(12, 14, 18, 20), ncol = 2, nrow = 2, byrow = FALSE)
+
+class(fish_size)
+typeof(fish_size)
+
+# Example of indexing
+
+fish_size[1,1]
+fish_size[2,1]
+
+# What happens if we create a matrix with different types of data?
+
+fish_type <- matrix(c(12, "trout", 18, 13L), ncol = 2, nrow = 2, byrow = FALSE)
+
+class(fish_type)
+typeof(fish_type)
+
+fish_type
+
+# When you leave the commma, you keep the entire column
+
+fish_size[2,]
+
+fish_size[,1]
+```
+
+# Lists
+
+Reminder: A list combines vectors that can be of different length and type
+
+```{r}
+urchins <- list("blue", c(1, 2, 3), c("a cat", "a dog"), 5L)
+urchins
+
+# You can't really just do urchins[3], because it's a "list", need 2 square brackets for "character"
+
+ex_1 <- urchins[3]
+ex_2 <- urchins[[3]]
+
+# Model outputs
+
+class(ex_1)
+class(ex_2)
+
+ex_2[1]
+```
+
+# Make a Named List
+
+Don't have to worry about the order things are in
+
+\<- is the assignment operator and anywhere else within a function must use the equal sign =
+
+```{r}
+tacos <- list(topping = c("onion", "cilantro", "guacamole"), 
+              filling = c("beans", "meat", "veggies"),
+              price = c(6.75, 8.25, 9.50))
+tacos
+
+# Index list elements by name
+
+tacos$filling
+tacos$filling[2]
+
+```
+
+In the console
+
+b \<- c(3, 4, 5)
+
+a \<- c(9, 5, 3)c(
+
+my_ttest \<- t.test(a,b)
+
+class(my_ttest)
+
+# Data Frames
+
+many different ways to create a data frame
+
+```{r}
+
+topping <- c("onion", "cilantro", "guacamole")
+filling <- c("beans", "meat", "veggies")
+price <- c(6.75, 8.25, 9.50)
+
+datafram_ex_1 <- data.frame(topping, filling, price)
+
+class(datafram_ex_1)
+
+datafram_ex_2 <- data.frame(topping = c("sour cream", "salsa", "cheese"),
+                            filling = c("chicken", "cheese", "cabbage"),
+                            price = c(12.50, 13.75, 15.00))
+
+# Attach the tidyverse up top: library(tidyverse)
+# ~ means the headings 
+
+datafram_ex_3 <- tribble(
+  ~topping, ~filling, ~price, 
+  "avocado", "steak", 13.25, 
+  "radish", "fish", 10.40,
+  "salsa", "veggies", 9.75
+)
+class(datafram_ex_3)
+
+datafram_ex_3
+
+# Do some indexing
+
+datafram_ex_3$price
+datafram_ex_3$price[3]
 ```
